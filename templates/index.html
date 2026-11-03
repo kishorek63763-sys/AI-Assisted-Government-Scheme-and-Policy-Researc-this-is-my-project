@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Government Scheme AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Government Scheme AI</h1>
+    <p>Find Government Schemes Easily</p>
+</header>
+
+<div class="container">
+
+    <h2>Search Government Schemes</h2>
+
+    <form method="POST">
+        <input type="text" name="search"
+               placeholder="Search scheme or category..."
+               value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Available Schemes</h2>
+
+    {% for scheme in schemes %}
+    <div class="card">
+        <h3>{{ scheme.name }}</h3>
+        <p><b>Category:</b> {{ scheme.category }}</p>
+        <p><b>Benefits:</b> {{ scheme.benefits }}</p>
+        <p><b>Eligibility:</b> {{ scheme.eligibility }}</p>
+        <a href="{{ scheme.website }}" target="_blank">
+            Official Website
+        </a>
+    </div>
+    {% else %}
+    <p>No schemes found.</p>
+    {% endfor %}
+
+</div>
+
+<footer>
+    <p>AI-Assisted Government Scheme and Policy Research</p>
+</footer>
+
+</body>
+</html>
+
